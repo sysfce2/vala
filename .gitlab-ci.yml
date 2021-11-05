@@ -59,7 +59,7 @@ nightly@23.08beta@aarch64:
 
 fedora-gcc-x86_64:
   stage: build
-  image: fedora:latest
+  image: fedora:34
   except:
     - tags
   before_script:
@@ -82,7 +82,7 @@ fedora-gcc-x86_64:
 
 fedora-clang-x86_64:
   stage: build
-  image: fedora:rawhide
+  image: fedora:34
   except:
     - tags
   variables:
