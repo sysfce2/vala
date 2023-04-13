@@ -800,6 +800,7 @@ TESTS = \
 	generics/arrays-not-supported-2.test \
 	generics/arrays-not-supported-3.test \
 	generics/class-property-override.vala \
+	generics/constraints.vala \
 	generics/constructor-chain-up.vala \
 	generics/delegate-return-type-missing.test \
 	generics/floating-type-cast.vala \
@@ -995,6 +996,7 @@ TESTS = \
 	parser/foreach.vala \
 	parser/foreach-no-type.test \
 	parser/function-syntax-error.test \
+	parser/generics-constraints.vala \
 	parser/initializer-list-incomplete.test \
 	parser/inner-array-size.test \
 	parser/invalid-brace.test \
