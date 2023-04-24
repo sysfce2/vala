@@ -50,12 +50,21 @@ public class Vala.VersionAttribute {
 	 */
 	public bool deprecated {
 		get {
-			if (_deprecated == null) {
+			if (_deprecated != null) {
+				return _deprecated;
+			}
+			if (symbol.get_attribute ("Version") != null
+			    // [Deprecated] is deprecated
+			    || symbol.get_attribute ("Deprecated") != null) {
 				_deprecated = symbol.get_attribute_bool ("Version", "deprecated", false)
 					|| symbol.get_attribute_string ("Version", "deprecated_since") != null
 					|| symbol.get_attribute_string ("Version", "replacement") != null
 					// [Deprecated] is deprecated
 					|| symbol.get_attribute ("Deprecated") != null;
+			} else if (symbol.parent_symbol != null) {
+				_deprecated = symbol.parent_symbol.version.deprecated;
+			} else {
+				_deprecated = false;
 			}
 			return _deprecated;
 		}
